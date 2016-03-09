@@ -1,34 +1,29 @@
 #include <iostream>
-#include "Stack.h"
+#include "KeyValue.h"
 
 using namespace std;
 
 int main()
 {
+    KeyValues *kv;
+    kv = new KeyValues();
 
-    Stack stack(5);
-
-    cout << "zasobnik je prazdny " << stack.isEmpty() << endl;
-
-    for (int i = 1; i <= 20; ++i)
+    for (int i = 0; i < N; ++i)
     {
-        stack.push(i);
+        cout << kv->Item(i).GetValue() << endl;
     }
 
-    cout << "zasobnik je prazdny " << stack.isEmpty() << endl;
-
-    int value;
-    while (1)
+    for (int i = 0; i < N; ++i)
     {
-        value = stack.pop();
-        if (value == -1) break;
-        else
-        {
-            cout << "hodnota: " << value << endl;
-        }
+        kv->Item(i).SetValue(i * 5);
     }
 
-    cout << "zasobnik je prazdny " << stack.isEmpty() << endl;
+    for (int i = 0; i < N; ++i)
+    {
+        cout << kv->Item(i).GetValue() << endl;
+    }
+
+    delete kv;
 
     return 0;
 }
